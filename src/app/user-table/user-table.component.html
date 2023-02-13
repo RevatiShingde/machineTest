@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 offset-sm-2">
+            <input [(ngModel)]="searchTerm" type="text" placeholder="Search" class="form-control">
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>company name</th>
+                        <th>Designation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of users | cudtomPipe:searchTerm" [ngClass]="{'bg-success':user.company.designation==='angular Developer'}">
+                        <td>{{user.name}}</td>
+                        <td>{{user.company.name}}</td>
+                        <td>{{user.company.designation}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
